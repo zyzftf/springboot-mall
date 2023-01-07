@@ -21,7 +21,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest  //  運行單元測試時, spring boot 會去啟動Spring容器, 創建所有的Bean
 @AutoConfigureMockMvc
-class ProductControllerTest {
+public class ProductControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
@@ -66,6 +66,7 @@ class ProductControllerTest {
         productRequest.setPrice(500);
         productRequest.setStock(10);
 
+        //  使用 objectMapper 將object轉成json字串
         String json = objectMapper.writeValueAsString(productRequest);
 
         RequestBuilder requestBuilder = MockMvcRequestBuilders
